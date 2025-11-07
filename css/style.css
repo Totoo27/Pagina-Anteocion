@@ -1,0 +1,857 @@
+:root {
+    /* Paleta de colores: Define variables de color para fácil mantenimiento y consistencia */
+    --color-dark-bg: #12121e; /* Fondo oscuro principal (casi negro con un toque de azul/morado) */
+    --color-dark-surface: #1e1e2d; /* Superficies más claras dentro del fondo (tarjetas, contenedores) */
+    --color-neon-primary: #8a2be2; /* Color neón principal (azul-violeta) */
+    --color-neon-secondary: #00ffff; /* Color neón secundario (cian brillante) */
+    --color-text-light: #e0e0f0; /* Color de texto principal claro */
+    --color-text-muted: #a0a0b0; /* Color de texto secundario/apagado */
+
+    /* Sombreado: Variables para efectos de brillo neón */
+    --shadow-neon-primary: 0 0 8px var(--color-neon-primary), 0 0 15px var(--color-neon-primary); /* Sombra intensa para el color primario */
+    --shadow-neon-secondary: 0 0 5px var(--color-neon-secondary), 0 0 10px var(--color-neon-secondary); /* Sombra suave para el color secundario */
+    --transition-speed: 0.3s; /* Velocidad de transición uniforme para la mayoría de los elementos */
+}
+
+/* Reset básico (Evita márgenes y paddings por defecto y facilita el cálculo del tamaño de los elementos) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el ancho/alto total del elemento */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente base */
+    background-color: var(--color-dark-bg); /* Aplica el fondo oscuro principal */
+    color: var(--color-text-light); /* Aplica el color de texto claro */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    scroll-behavior: smooth; /* Hace que el desplazamiento a anclas sea suave */
+    overflow-x: hidden; /* Previene el desplazamiento horizontal innecesario (útil en diseño responsivo) */
+}
+
+a {
+    color: var(--color-neon-secondary); /* Color por defecto de los enlaces (neón secundario) */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    transition: color var(--transition-speed); /* Transición suave en el cambio de color */
+}
+
+a:hover {
+    color: var(--color-neon-primary); /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos de fuente para elementos de título y logo (estilo tecnológico/futurista) */
+.logo-text, .main-title {
+    font-family: 'Orbitron', sans-serif; /* Aplica la fuente estilizada */
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    text-shadow: var(--shadow-neon-primary); /* Aplica el brillo neón primario al texto del logo */
+}
+
+.logo a {
+    display: flex; /* Permite alinear la imagen y el texto del logo */
+    flex-direction: column-reverse; /* Coloca la imagen encima del texto */
+    align-items: center;
+    line-height: 2;
+    margin: 2px 0px;
+}
+
+.logo img {
+    width: 25%; /* Ajusta el tamaño del icono/imagen del logo */
+}
+
+/* ================== ENCABEZADO Y NAVEGACIÓN ================== */
+.main-header {
+    position: fixed; /* Fija el encabezado en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; /* Usa flexbox para alinear el logo y la navegación */
+    justify-content: space-between; /* Espacia el logo de la navegación */
+    align-items: center;
+    padding: 1rem 3rem;
+    /* Fondo semi-transparente y desenfocado para un efecto moderno/futurista */
+    background-color: rgba(18, 18, 30, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+    border-bottom: 1px solid var(--color-neon-primary); /* Línea de neón primario inferior */
+}
+
+.main-nav {
+    display: flex; /* Contenedor para la lista de enlaces e íconos */
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Alinea los enlaces de navegación horizontalmente */
+    gap: 2rem; /* Espacio entre los enlaces */
+}
+
+.nav-links a {
+    color: var(--color-text-light); /* Color del texto de navegación */
+    position: relative;
+    padding: 5px 0;
+}
+
+.neon-hover:hover {
+    color: var(--color-neon-secondary);
+    text-shadow: var(--shadow-neon-secondary); /* Efecto neón al pasar el ratón */
+}
+
+.nav-icons {
+    display: flex; /* Contenedor para los íconos (carrito, búsqueda, etc.) */
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light); /* Color de los íconos */
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+.icon-btn:hover {
+    color: var(--color-neon-secondary);
+    text-shadow: var(--shadow-neon-secondary); /* Efecto neón en íconos al pasar el ratón */
+}
+
+.menu-toggle {
+    display: none; /* Oculta el botón de menú hamburguesa por defecto (solo visible en móvil) */
+}
+
+/* ================== BOTONES ================== */
+.futuristic-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--color-neon-primary); /* Borde neón para el estilo */
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), color var(--transition-speed);
+    display: inline-flex; /* Permite alinear contenido interno (ej. texto e ícono) */
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--color-neon-primary);
+    color: var(--color-dark-bg); /* Texto oscuro sobre fondo neón primario */
+    box-shadow: var(--shadow-neon-primary); /* Aplica el brillo neón al botón */
+}
+
+.btn-primary:hover {
+    background-color: transparent; /* Efecto "outlines" al pasar el ratón */
+    color: var(--color-neon-primary);
+    box-shadow: var(--shadow-neon-primary);
+    text-shadow: var(--shadow-neon-primary);
+}
+
+.btn-secondary {
+    background-color: transparent; /* Botón con solo borde y texto neón */
+    color: var(--color-neon-secondary);
+    border-color: var(--color-neon-secondary);
+    box-shadow: var(--shadow-neon-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-neon-secondary); /* Rellena el botón al pasar el ratón */
+    color: var(--color-dark-bg); /* Texto oscuro sobre fondo neón secundario */
+    box-shadow: none;
+}
+
+.neon-glow {
+    text-shadow: var(--shadow-neon-primary); /* Clase de utilidad para texto con brillo neón primario */
+    color: var(--color-neon-primary);
+}
+
+/* ================== GENERAL ================== */
+main {
+    padding-top: 5rem; /* Compensa la altura del encabezado fijo */
+}
+
+.section {
+    padding: 10rem 10%;
+    min-height: 80vh;
+    display: flex; /* Usa flexbox para centrar contenido en la sección */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+.dark-section {
+    background-color: var(--color-dark-surface); /* Fondo para secciones que necesitan diferenciarse del 'body' */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--color-text-muted); /* Color de texto más sutil */
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 90vh;
+    padding: 0 10%;
+    /* Efecto de degradado radial sutil en el fondo para un ambiente neón */
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1) 0%, rgba(18, 18, 30, 1) 70%); 
+}
+
+.hero-content {
+    max-width: 50%;
+    text-align: left;
+}
+
+.main-title {
+    font-size: 4.5rem; /* Título principal grande y llamativo */
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--color-neon-secondary);
+    text-shadow: 0 0 5px var(--color-neon-secondary); /* Sombra/brillo en la frase principal */
+    margin-bottom: 2rem;
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: var(--color-text-muted);
+}
+
+.hero-image {
+    max-width: 40%;
+}
+
+.product-mockup {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Aplica una animación flotante con efecto de brillo variable */
+    animation: float-glow 5s ease-in-out infinite; 
+}
+
+/* Definición de la animación de flotación y cambio de brillo */
+@keyframes float-glow {
+    0% { transform: translateY(0px) rotate(0deg); filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5)); } /* Inicia en posición 0 con brillo primario */
+    50% { transform: translateY(-20px) rotate(1deg); filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.7)); } /* Sube 20px, rota ligeramente y cambia a brillo secundario más intenso */
+    100% { transform: translateY(0px) rotate(0deg); filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5)); } /* Vuelve al estado inicial */
+}
+
+/* ================== PRODUCTOS ================== */
+.product-grid {
+    display: grid;
+    /* Crea un grid responsivo: 300px min, expandiéndose a 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.product-card {
+    background-color: var(--color-dark-surface); /* Fondo para las tarjetas */
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid transparent; /* Borde inicial transparente */
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.product-card:hover {
+    border-color: var(--color-neon-primary); /* Muestra el borde neón al pasar el ratón */
+    box-shadow: var(--shadow-neon-primary); /* Aplica el brillo neón al pasar el ratón */
+}
+
+.product-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin cortarse */
+    margin-bottom: 1rem;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    color: var(--color-neon-secondary); /* Nombre del producto en neón secundario */
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-neon-primary); /* Precio resaltado en neón primario */
+    margin: 1rem 0;
+}
+
+/* ================== CARRITO Y FORMULARIO ================== */
+.cart-summary {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-dark-surface);
+    border: 2px solid var(--color-neon-secondary); /* Borde destacado para el resumen del carrito */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.hidden {
+    display: none !important; /* Clase de utilidad para ocultar elementos */
+}
+
+#cart-list {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+#cart-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--color-text-muted); /* Separador punteado/discreto entre ítems */
+}
+
+.cart-item-detail {
+    text-shadow: var(--shadow-neon-secondary);
+    color: var(--color-neon-secondary);
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between; /* Alinea el detalle y el botón de eliminar */
+    align-items: center;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0rem 0.5rem;
+    color: var(--color-text-light);
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+.remove-item-btn:hover {
+    color: #ff0000; /* Color rojo de advertencia al pasar el ratón */
+    text-shadow: 0 0 5px #ff0000;
+}
+
+#cart-title {
+    font-size: 2.6rem;
+    border-bottom: 1px dashed var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.summary-text {
+    color: #FFFFFF;
+    text-shadow: none;
+    font-size: 1.5rem;
+    margin: 1.1rem 0rem;
+}
+
+.futuristic-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    text-shadow: var(--shadow-neon-secondary);
+    color: var(--color-neon-secondary);
+    padding: 1rem 0;
+}
+
+.futuristic-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-neon-secondary); /* Etiqueta en neón secundario */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ajuste del input para ocupar todo el ancho */
+.futuristic-form input {
+    width: 100%; 
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem; 
+    margin-top: 0.3rem; 
+    background: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente y oscuro para los inputs */
+    border: 1px solid var(--color-neon-secondary); /* Borde de neón secundario */
+    color: var(--color-text-light);
+    border-radius: 4px;
+    box-shadow: 0 0 5px var(--color-neon-secondary); /* Brillo sutil para los inputs */
+    box-sizing: border-box; 
+    margin-left: 0; 
+}
+
+/* ================== ANUNCIOS ================== */
+.announcement-grid {
+    display: flex; /* Alinea las tarjetas de anuncios horizontalmente */
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.announcement-card {
+    flex: 1; /* Hace que todas las tarjetas ocupen el mismo espacio */
+    background-color: var(--color-dark-surface);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform var(--transition-speed);
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta ligeramente al pasar el ratón */
+    box-shadow: var(--shadow-neon-secondary); /* Aplica brillo neón secundario */
+}
+
+.announcement-card h3 {
+    color: var(--color-neon-primary); /* Título del anuncio en neón primario */
+    margin-bottom: 0.5rem;
+}
+
+.announcement-card .date {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* ================== PAG EMPRESA ================== */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--color-neon-primary);
+    box-shadow: var(--shadow-neon-primary);
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Línea vertical centrada para la línea de tiempo */
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%; /* Cada elemento ocupa la mitad del ancho */
+    text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0; /* Ítems impares a la izquierda */
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%; /* Ítems pares a la derecha */
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -7px;
+    background-color: var(--color-dark-bg);
+    border: 4px solid var(--color-neon-secondary);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px var(--color-neon-secondary); /* Círculo de neón en la línea de tiempo */
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px; /* Coloca el círculo del lado izquierdo para los ítems pares */
+}
+
+.timeline-year {
+    font-weight: bold;
+    color: var(--color-neon-secondary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.sponsors-grid {
+    display: grid;
+    /* Grid de patrocinadores responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.sponsor-card {
+    background-color: var(--color-dark-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-text-muted);
+    transition: all var(--transition-speed);
+}
+
+.sponsor-card:hover {
+    border-color: var(--color-neon-primary);
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.sponsor-card img {
+    width: 80%;
+    max-height: 50px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    /* Aplica un brillo sutil a los logos de patrocinadores */
+    filter: drop-shadow(0 0 3px var(--color-neon-primary)); 
+}
+
+/* ================== SOPORTE ================== */
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-neon-secondary);
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-dark-bg); /* Fondo de input más oscuro */
+    border: 1px solid var(--color-text-muted);
+    color: var(--color-text-light);
+    border-radius: 5px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-neon-primary);
+    outline: none;
+    box-shadow: var(--shadow-neon-primary); /* Brillo neón al enfocar el input */
+}
+
+.faq-section {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.faq-item {
+    background-color: var(--color-dark-bg);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-left: 5px solid var(--color-neon-secondary); /* Borde de color neón como indicador */
+}
+
+.faq-item h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-neon-secondary);
+}
+
+.faq-answer {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    max-height: 0;
+    overflow: hidden; /* Oculta la respuesta por defecto */
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; /* Transición para el acordeón */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Expande la altura para mostrar la respuesta (se asume 200px es suficiente) */
+    padding-top: 0.5rem;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg); /* Rota el ícono para indicar que está abierto */
+}
+
+/* ================== FOOTER ================== */
+.main-footer {
+    background-color: var(--color-dark-surface); /* Fondo del footer más claro que el body */
+    padding: 2rem 10%;
+    border-top: 1px solid var(--color-neon-primary); /* Borde superior de neón */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    text-align: left;
+}
+
+.footer-text p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+}
+
+.social-links a:hover {
+    color: var(--color-neon-secondary);
+    text-shadow: var(--shadow-neon-secondary); /* Brillo neón en los íconos sociales */
+}
+
+/* ================== WIDGET SPONSOR ================== */
+.sponsor-widget {
+    position: fixed;
+    right: -250px; /* Inicialmente oculto a la derecha */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    padding: 1rem;
+    background-color: var(--color-dark-surface);
+    border: 2px solid var(--color-neon-primary);
+    border-right: none;
+    border-radius: 10px 0 0 10px; /* Bordes redondeados solo a la izquierda */
+    box-shadow: var(--shadow-neon-primary);
+    transition: right 0.5s ease-in-out; /* Transición para el efecto de deslizar */
+    z-index: 900;
+}
+
+.sponsor-widget.active {
+    right: 0; /* Muestra el widget deslizando a la posición 0 */
+}
+
+.widget-title {
+    color: var(--color-neon-secondary);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 3px var(--color-neon-secondary);
+}
+
+.widget-logo {
+    margin-bottom: 0.5rem;
+}
+
+.widget-logo img {
+    max-width: 100px;
+    filter: drop-shadow(0 0 2px var(--color-neon-secondary));
+}
+
+#close-widget {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+
+/* ================== RESPONSIVE ================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .main-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .hero-section {
+        flex-direction: column; /* Apila el contenido en tabletas */
+        text-align: center;
+        padding-top: 8rem;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-image {
+        max-width: 70%;
+    }
+
+    .main-title {
+        font-size: 3.5rem; /* Reduce el tamaño del título */
+    }
+
+    .section {
+        padding: 5rem 5%; /* Reduce el padding de las secciones */
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo img {
+        width: 35%; /* Aumenta el tamaño del logo en móvil */
+    }
+
+    /* Menú Hamburguesa */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column; /* Apila los enlaces de navegación verticalmente */
+        background-color: var(--color-dark-bg);
+        border-top: 1px solid var(--color-neon-primary);
+        padding: 0;
+        height: 0; /* Oculta la lista por defecto (slide-out) */
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+    }
+    
+    .nav-links.active {
+        height: 450px; /* Altura activa para mostrar el menú (ajustar si es necesario) */
+        padding: 1rem 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el ícono de menú hamburguesa */
+        margin-left: 1rem;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+    .tagline {
+        font-size: 1.5rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-section {
+        min-height: auto; /* Permite que la sección de héroe se ajuste al contenido */
+    }
+
+    .announcement-grid {
+        flex-direction: column; /* Apila los anuncios en móvil */
+    }
+
+    .timeline::after {
+        left: 20px; /* Mueve la línea de tiempo a la izquierda */
+    }
+
+    .timeline-item {
+        width: 100%; /* Cada ítem ocupa todo el ancho */
+        padding-left: 60px; /* Deja espacio para la línea y el punto */
+        padding-right: 10px;
+        left: 0 !important; /* Coloca todos los ítems a la izquierda */
+    }
+
+    .timeline-item::after {
+        left: 13px !important; /* Mueve el círculo del punto a la izquierda */
+    }
+    
+    /* Footer responsivo */
+    .footer-content {
+        flex-direction: column; /* Apila el contenido del footer */
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+    
+    .sponsor-widget {
+        width: 200px; /* Reduce el ancho del widget */
+        right: -200px;
+    }
+}
+
+/* Celular chico */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem; /* Más reducción del tamaño del logo */
+    }
+
+    .main-title {
+        font-size: 2.5rem; /* Más reducción del tamaño del título principal */
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+    
+    .cart-summary {
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        height: 450px; /* Mantiene la altura del menú abierto */
+    }
+    
+    .futuristic-btn {
+        width: 100%; /* Hace que los botones ocupen todo el ancho en pantallas pequeñas */
+        margin-top: 1rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Una columna para las tarjetas de producto */
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anteocion - Soporte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./imagenes/Icono.png" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="./index.html#inicio">
+                <span class="logo-text">ANTEOCION</span>
+                <img src="./imagenes/Logo.png"/>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="./index.html" class="neon-hover active">Inicio</a></li>
+                <li><a href="./index.html#carrito" class="neon-hover">Productos</a></li>
+                <li><a href="./soporte.html" class="neon-hover">Soporte</a></li>
+                <li><a href="./index.html#anuncios" class="neon-hover">Anuncios</a></li>
+                <li><a href="./empresa.html" class="neon-hover">Empresa</a></li>
+                <li><a href="./empresa.html#historia" class="neon-hover">Historia</a></li>
+                <li><a href="./empresa.html#patrocinadores" class="neon-hover">Patrocinadores</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="./carrito.html"><button id="cart-btn" class="icon-btn" aria-label="Ver Carrito"><i data-feather="shopping-cart"></i></button></a>
+                <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Abrir Menú"><i data-feather="menu"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="soporte" class="section dark-section">
+            <h2 class="section-title neon-glow">Soporte y Contacto</h2>
+            <p class="section-subtitle">Nuestro equipo de soporte está 24/7 listo para asistirte en el futuro.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email de Contacto</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción del Problema/Consulta</label>
+                    <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary futuristic-btn">Enviar Mensaje</button>
+            </form>
+
+            <div class="faq-section">
+                <h3 class="neon-glow">Preguntas Frecuentes (FAQ)</h3>
+    
+                <div class="faq-item">
+                    <h4>¿Cómo funciona la traducción en tiempo real? <i data-feather="chevron-down" class="faq-icon"></i></h4>
+        
+                    <p class="faq-answer">Utilizamos un microprocesador cuántico que procesa el audio/texto y proyecta los subtítulos en la retina a través de nanolentes.</p>
+                </div>
+    
+                <div class="faq-item">
+                    <h4>¿Son resistentes al agua? <i data-feather="chevron-down" class="faq-icon"></i></h4>
+                    <p class="faq-answer">Sí, el modelo Deportivo ZL tiene certificación IPX8. Los demás son resistentes a salpicaduras.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <span class="logo-text neon-glow">ANTEOCION</span>
+                <p>© 2025 Anteocion — Traduciendo el futuro. Todos los derechos reservados.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="icon-link"><i data-feather="twitter"></i></a>
+                <a href="#" class="icon-link"><i data-feather="instagram"></i></a>
+                <a href="#" class="icon-link"><i data-feather="linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <aside id="sponsor-widget" class="sponsor-widget">
+        <p class="widget-title">Patrocinadores Destacados</p>
+        <div class="widget-logo"><a href="https://www.sony.com.ar"><img src="imagenes/sponsors/sponsor1.png" alt="Sponsor 1 Logo"></a></div>
+        <div class="widget-logo"><a href="https://www.samsung.com/ar"><img src="imagenes/sponsors/sponsor2.png" alt="Sponsor 2 Logo"></a></div>
+        <div class="widget-logo"><a href="https://www.ray-ban.com/latam"><img src="imagenes/sponsors/sponsor3.png" alt="Sponsor 3 Logo"></a></div>
+        <button id="close-widget" aria-label="Cerrar Widget"><i data-feather="x"></i></button>
+    </aside>
+
+    <script src="javascript/script.js"></script>
+    <script>
+        // Inicializa Feather Icons para que se muestren
+        feather.replace();
+    </script>
+</body>
+</html>

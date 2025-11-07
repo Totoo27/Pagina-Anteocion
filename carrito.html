@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anteocion - Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./imagenes/Icono.png" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="./index.html#inicio">
+                <span class="logo-text">ANTEOCION</span>
+                <img src="./imagenes/Logo.png"/>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="./index.html" class="neon-hover active">Inicio</a></li>
+                <li><a href="#carrito" class="neon-hover">Productos</a></li>
+                <li><a href="./soporte.html" class="neon-hover">Soporte</a></li>
+                <li><a href="#anuncios" class="neon-hover">Anuncios</a></li>
+                <li><a href="./empresa.html" class="neon-hover">Empresa</a></li>
+                <li><a href="./empresa.html#historia" class="neon-hover">Historia</a></li>
+                <li><a href="./empresa.html#patrocinadores" class="neon-hover">Patrocinadores</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="./carrito.html"><button id="cart-btn" class="icon-btn" aria-label="Ver Carrito"><i data-feather="shopping-cart"></i></button></a>
+                <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Abrir Menú"><i data-feather="menu"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="carrito" class="section">
+            <h2 id="cart-title" class="tagline">CARRITO</h2>
+            <div id="cart-summary" class="cart-summary hidden">
+                 <div id="cart-content">
+                   <ul id="cart-list"></ul>
+                     <p class="cart-total">Total: <span id="cart-total">$0 USD</span></p>
+                     <button id="checkout-btn" class="btn-primary futuristic-btn">Finalizar Compra</button>
+                 </div>
+
+            <div id="checkout-form-container" class="hidden">
+                    <h3 class="neon-glow">Checkout</h3>
+                    <form id="checkout-form" class="futuristic-form">
+
+                    <div>    
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" required>
+                    </div>
+
+                    <div>
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" required>
+                    </div>
+
+                    <div>
+                    <label for="direccion">Dirección de Envío</label>
+                    <input id="direccion" rows="1" required></input>
+                    </div>
+
+                 <p class="summary-text">Total a pagar: <span id="final-total"></span></p>
+
+                 <button type="submit" class="btn-primary futuristic-btn">Pagar Ahora</button>
+                </form>
+            </div>
+        </div>
+        </section>
+
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <span class="logo-text neon-glow">ANTEOCION</span>
+                <p>© 2025 Anteocion — Traduciendo el futuro. Todos los derechos reservados.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="icon-link"><i data-feather="twitter"></i></a>
+                <a href="#" class="icon-link"><i data-feather="instagram"></i></a>
+                <a href="#" class="icon-link"><i data-feather="linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript/carrito.js"></script>
+    <script>
+        // Inicializa Feather Icons para que se muestren
+        feather.replace();
+    </script>
+</body>
+</html>

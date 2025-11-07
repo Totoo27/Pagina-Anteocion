@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anteocion - Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./imagenes/Icono.png" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="#inicio">
+                <span class="logo-text">ANTEOCION</span>
+                <img src="./imagenes/Logo.png"/>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="./index.html" class="neon-hover active">Inicio</a></li>
+                <li><a href="#carrito" class="neon-hover">Productos</a></li>
+                <li><a href="./soporte.html" class="neon-hover">Soporte</a></li>
+                <li><a href="#anuncios" class="neon-hover">Anuncios</a></li>
+                <li><a href="./empresa.html" class="neon-hover">Empresa</a></li>
+                <li><a href="./empresa.html#historia" class="neon-hover">Historia</a></li>
+                <li><a href="./empresa.html#patrocinadores" class="neon-hover">Patrocinadores</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="./carrito.html"><button id="cart-btn" class="icon-btn" aria-label="Ver Carrito"><i data-feather="shopping-cart"></i></button></a>
+                <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Abrir Menú"><i data-feather="menu"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <h1 class="main-title neon-glow">ANTEOCION</h1>
+                <p class="tagline">"Traducí el mundo, mirá el futuro con Anteocion"</p>
+                <p class="description">Anteocion no es solo un par de anteojos. Es la convergencia de IA y lingüística avanzada, capaz de subtitular y traducir en tiempo real lo que escuchas y lees. El futuro, ahora, en tu visión.</p>
+                <a href="#carrito" class="btn-primary futuristic-btn">Comprar Ahora <i data-feather="arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="imagenes/productos/AnteocionDeSol.png" alt="Anteocion Smart Glasses Mockup" class="product-mockup">
+            </div>
+        </section>
+
+        <section id="carrito" class="section">
+            <h2 class="section-title neon-glow">Modelos y Precios</h2>
+            <p class="section-subtitle">Fabricados con materiales delicados e IA avanzada. Elige tu visión del futuro.</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="imagenes/productos/AnteocionDeSol.png" alt="Anteocion de Sol" class="product-img">
+                    <h3 class="product-name">Modelo Solar X9</h3>
+                    <p class="product-detail">Lentes polarizados con traducción instantánea. Estilo y funcionalidad futurista.</p>
+                    <span class="product-price">$599 USD</span>
+                    <button class="btn-secondary futuristic-btn" data-product="Solar X9">Agregar al Carrito</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagenes/productos/AnteocionComun.png" alt="Anteocion Normales" class="product-img">
+                    <h3 class="product-name">Modelo Clásico T5</h3>
+                    <p class="product-detail">Marco ligero para uso diario. Integración perfecta de traducción y realidad aumentada.</p>
+                    <span class="product-price">$479 USD</span>
+                    <button class="btn-secondary futuristic-btn" data-product="Clásico T5">Agregar al Carrito</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagenes/productos/AnteocionDeportivo.png" alt="Anteocion Marco Deportivo" class="product-img">
+                    <h3 class="product-name">Modelo Deportivo ZL</h3>
+                    <p class="product-detail">Diseño ergonómico y resistente al sudor. Perfecto para atletas y exploradores.</p>
+                    <span class="product-price">$650 USD</span>
+                    <button class="btn-secondary futuristic-btn" data-product="Deportivo ZL">Agregar al Carrito</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="anuncios" class="section">
+            <h2 class="section-title neon-glow">Anuncios y Promociones</h2>
+            <div class="announcement-grid">
+                <article class="announcement-card neon-border">
+                    <h3>¡Lanzamiento del Software 2.0!</h3>
+                    <p>Nueva actualización con soporte para 10 idiomas adicionales y modo de lectura rápida. ¡Descárgala ya!</p>
+                    <span class="date">15 OCT 2025</span>
+                </article>
+                <article class="announcement-card neon-border">
+                    <h3>Cyber Week: 20% OFF</h3>
+                    <p>Promoción limitada en el Modelo Clásico T5. ¡El momento de ver el futuro es ahora!</p>
+                    <span class="date">Oferta hasta el 31 OCT</span>
+                </article>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <span class="logo-text neon-glow">ANTEOCION</span>
+                <p>© 2025 Anteocion — Traduciendo el futuro. Todos los derechos reservados.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="icon-link"><i data-feather="twitter"></i></a>
+                <a href="#" class="icon-link"><i data-feather="instagram"></i></a>
+                <a href="#" class="icon-link"><i data-feather="linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <aside id="sponsor-widget" class="sponsor-widget">
+        <p class="widget-title">Patrocinadores Destacados</p>
+        <div class="widget-logo"><a href="https://www.sony.com.ar"><img src="imagenes/sponsors/sponsor1.png" alt="Sponsor 1 Logo"></a></div>
+        <div class="widget-logo"><a href="https://www.samsung.com/ar"><img src="imagenes/sponsors/sponsor2.png" alt="Sponsor 2 Logo"></a></div>
+        <div class="widget-logo"><a href="https://www.ray-ban.com/latam"><img src="imagenes/sponsors/sponsor3.png" alt="Sponsor 3 Logo"></a></div>
+        <button id="close-widget" aria-label="Cerrar Widget"><i data-feather="x"></i></button>
+    </aside>
+
+    <script src="javascript/script.js"></script>
+    <script>
+        // Inicializa Feather Icons para que se muestren
+        feather.replace();
+    </script>
+</body>
+</html>
