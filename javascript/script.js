@@ -20,23 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addProductButtons = document.querySelectorAll('.product-card .btn-secondary');
 
+    // Guardado de productos en el carrito
     addProductButtons.forEach(button => {
         button.addEventListener('click', (e) => {
+
+            // Guardar datos del producto
             const card = e.target.closest('.product-card');
             const name = card.querySelector('.product-name').textContent;
-            
+            const imageSrc = card.querySelector('.product-img').src;
+
             const priceText = card.querySelector('.product-price').textContent;
             const price = parseFloat(priceText.replace('$', '').replace(' USD', ''));
 
             const existingItem = cart.find(item => item.name === name);
 
+            // Si existe sumar cantidad
             if (existingItem) {
                 existingItem.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
+            } else { // Agregar producto
+                cart.push({ name, price, quantity: 1, imageSrc });
             }
             saveCart();
-            
+        
             alert(`"${name}" agregado al carrito. ¡Revisa tu carrito!`);
         });
     });

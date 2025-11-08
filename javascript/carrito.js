@@ -50,11 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
         cartContent.classList.remove('hidden');
         checkoutFormContainer.classList.add('hidden');
 
+        // Después (Modificación en javascript/carrito.js)
         cart.forEach((item, index) => {
             const li = document.createElement('li');
             li.classList.add('cart-item-detail');
             li.innerHTML = `
-                ${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)} USD
+                <div class="cart-item-container">
+                    <img src="${item.imageSrc}" alt="${item.name}" class="cart-product-img">
+                    <div class="item-text-container">
+                        <span class="item-name">${item.name}</span>
+                        <span class="neon-glow"> (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)} USD</span>
+                    </div>
+                </div>
                 <button class="remove-item-btn" data-index="${index}"><i data-feather="x"></i></button>
             `;
             cartList.appendChild(li);

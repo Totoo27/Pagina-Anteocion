@@ -136,7 +136,7 @@ a:hover {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color var(--transition-speed), box-shadow var(--transition-speed), color var(--transition-speed);
-    display: inline-flex; /* Permite alinear contenido interno (ej. texto e ícono) */
+    display: inline-flex; /* Permite alinear contenido interno */
     align-items: center;
     gap: 0.5rem;
 }
@@ -247,6 +247,32 @@ main {
     object-fit: contain;
     /* Aplica una animación flotante con efecto de brillo variable */
     animation: float-glow 5s ease-in-out infinite; 
+}
+
+.cart-product-img {
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 30%;
+    height: 50%;
+    padding: 0.6rem;
+    border: 3px solid var(--color-neon-secondary); /* Borde neón para el estilo */
+    border-radius: 0.6rem;
+}
+
+.cart-item-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-text-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 0.9rem;
+    align-self: center;
+}
+
+.item-name {
+    font-size: 1.7rem;
 }
 
 /* Definición de la animación de flotación y cambio de brillo */
@@ -715,6 +741,11 @@ main {
     .section {
         padding: 5rem 5%; /* Reduce el padding de las secciones */
     }
+
+    .cart-product-img{
+        width: 40%;
+    }
+    
 }
 
 /* Celular */
@@ -810,6 +841,10 @@ main {
         width: 200px; /* Reduce el ancho del widget */
         right: -200px;
     }
+
+    .cart-product-img{
+        width: 40%;
+    }
 }
 
 /* Celular chico */
@@ -853,5 +888,9 @@ main {
 
     .product-grid {
         grid-template-columns: 1fr; /* Una columna para las tarjetas de producto */
+    }
+
+    .cart-product-img{
+        width: 40%;
     }
 }
